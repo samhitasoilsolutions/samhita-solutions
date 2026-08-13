@@ -3,21 +3,22 @@ import { Leaf, FlaskConical, Droplets, Check } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import productPfWp from "@/assets/product-pf-wp.webp";
 import productPfLf from "@/assets/product-pf-lf.webp";
+import productNematicide from "@/assets/product-nematicide.jpeg";
 
 import productPfWpAvif from "@/assets/product-pf-wp.avif";
 import productPfLfAvif from "@/assets/product-pf-lf.avif";
 
-const bioPesticideImages = [productPfWp, productPfLf, productPfLf, productPfLf, productPfLf];
+const bioPesticideImages = [productPfWp, productPfLf, productPfLf, productPfLf, productPfLf, productNematicide];
 const bioFertilizerImages = [productPfLf, productPfLf, productPfLf, productPfLf];
 
-const bioPesticideImagesAvif = [productPfWpAvif, productPfLfAvif, productPfLfAvif, productPfLfAvif, productPfLfAvif];
+const bioPesticideImagesAvif = [productPfWpAvif, productPfLfAvif, productPfLfAvif, productPfLfAvif, productPfLfAvif, undefined];
 const bioFertilizerImagesAvif = [productPfLfAvif, productPfLfAvif, productPfLfAvif, productPfLfAvif];
 
 interface ProductCardProps {
   product: { name: string; description: string; benefits: readonly string[] };
   index: number;
   image: string;
-  imageAvif: string;
+  imageAvif?: string;
 }
 
 function ProductCard({ product, index, image, imageAvif }: ProductCardProps) {
@@ -31,7 +32,7 @@ function ProductCard({ product, index, image, imageAvif }: ProductCardProps) {
     >
       <div className="flex gap-4 mb-4">
         <picture>
-          <source srcSet={imageAvif} type="image/avif" />
+          {imageAvif && <source srcSet={imageAvif} type="image/avif" />}
           <img
             src={image}
             alt={product.name}
@@ -68,7 +69,7 @@ interface ProductCategoryProps {
   subtitle?: string;
   products: readonly { name: string; description: string; benefits: readonly string[] }[];
   images: string[];
-  imagesAvif: string[];
+  imagesAvif: (string | undefined)[];
 }
 
 function ProductCategory({ title, icon: Icon, format, subtitle, products, images, imagesAvif }: ProductCategoryProps) {
@@ -100,7 +101,7 @@ function ProductCategory({ title, icon: Icon, format, subtitle, products, images
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product, index) => (
-          <ProductCard key={index} product={product} index={index} image={images[index] || productPfLf} imageAvif={imagesAvif[index] || productPfLfAvif} />
+          <ProductCard key={index} product={product} index={index} image={images[index] || productPfLf} imageAvif={imagesAvif[index]} />
         ))}
       </div>
     </div>

@@ -273,6 +273,11 @@ export const translations = {
           description: "Aqueous suspension promoting root development and nutrient uptake while protecting against wilts and rots.",
           benefits: ["Root development", "Nutrient uptake", "Wilt control"],
         },
+        {
+          name: "Monas-Nematicide",
+          description: "Liquid formulation that suppresses root-knot nematodes while protecting roots and boosting nutrient uptake. Fortified with micronutrients (P, Fe, Mg, Mo, Mn, Co).",
+          benefits: ["Nematode control", "Root protection", "Higher yield"],
+        },
       ],
       bioFertilizers: [
         {
@@ -781,6 +786,11 @@ export const translations = {
           name: "ట్రైకోడెర్మా హర్జియానమ్ 2.0% AS",
           description: "వాడిపోవడం మరియు కుళ్ళిపోవడం నుండి రక్షిస్తూ వేరు అభివృద్ధి మరియు పోషకాల గ్రహణాన్ని ప్రోత్సహించే జల తేలికైన సస్పెన్షన్.",
           benefits: ["వేరు అభివృద్ధి", "పోషకాల గ్రహణం", "వాడు నియంత్రణ"],
+        },
+        {
+          name: "మోనాస్-నెమాటిసైడ్",
+          description: "వేళ్ళను రక్షిస్తూ, పోషకాల గ్రహణాన్ని పెంచుతూ నులి పురుగులను (నెమటోడ్స్) అణచివేసే ద్రవ సూత్రీకరణ. సూక్ష్మపోషకాలతో (P, Fe, Mg, Mo, Mn, Co) బలపరచబడింది.",
+          benefits: ["నులి పురుగు నియంత్రణ", "వేరు రక్షణ", "అధిక దిగుబడి"],
         },
       ],
       bioFertilizers: [

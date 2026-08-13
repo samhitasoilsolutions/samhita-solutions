@@ -235,15 +235,15 @@ export function Header() {
                     {t.header.getInTouch}
                   </Link>
                 </Button>
-                <div className="flex items-center gap-3">
-                  {socialLinks.map(({ href, label, Icon, bg }) => (
+                <div className="flex items-center gap-1">
+                  {socialLinks.map(({ href, label, Icon }) => (
                     <a
                       key={label}
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-white transition-opacity hover:opacity-85 ${bg}`}
+                      className="w-9 h-9 rounded-full flex items-center justify-center text-foreground/70 hover:text-primary hover:bg-secondary transition-colors"
                     >
                       <Icon className="w-4 h-4" />
                     </a>
