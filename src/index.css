@@ -1,0 +1,382 @@
+/* Self-hosted fonts */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-variable.woff2') format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Samhita Soil Solutions - Industrial Biotech Design System
+   Clean, clinical aesthetic with deep teal and steel tones
+   All colors in HSL format */
+
+@layer base {
+  :root {
+    /* Core palette - Industrial teal with cool neutrals */
+    --background: 210 15% 98%;
+    --foreground: 210 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 15%;
+
+    /* Primary - Deep teal (biotech / lab) */
+    --primary: 190 45% 25%;
+    --primary-foreground: 210 15% 98%;
+
+    /* Secondary - Cool gray */
+    --secondary: 200 15% 94%;
+    --secondary-foreground: 190 45% 25%;
+
+    /* Muted - Slate gray */
+    --muted: 210 10% 94%;
+    --muted-foreground: 210 8% 45%;
+
+    /* Accent - Industrial amber */
+    --accent: 35 85% 52%;
+    --accent-foreground: 210 10% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 15% 98%;
+
+    --border: 210 10% 90%;
+    --input: 210 10% 90%;
+    --ring: 190 45% 25%;
+
+    --radius: 1rem;
+
+    /* Custom tokens for Samhita */
+    --hero-gradient: linear-gradient(180deg, hsl(190 45% 25% / 0.9), hsl(190 45% 18% / 0.95));
+    --glass: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.2;
+
+    /* Shadows - Apple style */
+    --shadow-sm: 0 1px 2px hsl(210 10% 15% / 0.04);
+    --shadow-md: 0 4px 12px hsl(210 10% 15% / 0.08);
+    --shadow-lg: 0 12px 40px hsl(210 10% 15% / 0.12);
+    --shadow-xl: 0 24px 60px hsl(210 10% 15% / 0.16);
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 210 15% 98%;
+    --sidebar-foreground: 210 10% 15%;
+    --sidebar-primary: 190 45% 25%;
+    --sidebar-primary-foreground: 210 15% 98%;
+    --sidebar-accent: 200 15% 94%;
+    --sidebar-accent-foreground: 190 45% 25%;
+    --sidebar-border: 210 10% 90%;
+    --sidebar-ring: 190 45% 25%;
+  }
+
+  .dark {
+    --background: 210 15% 8%;
+    --foreground: 210 15% 95%;
+
+    --card: 210 15% 12%;
+    --card-foreground: 210 15% 95%;
+
+    --popover: 210 15% 12%;
+    --popover-foreground: 210 15% 95%;
+
+    --primary: 190 50% 45%;
+    --primary-foreground: 210 15% 8%;
+
+    --secondary: 210 15% 18%;
+    --secondary-foreground: 210 15% 95%;
+
+    --muted: 210 15% 18%;
+    --muted-foreground: 210 10% 60%;
+
+    --accent: 35 85% 52%;
+    --accent-foreground: 210 15% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 15% 95%;
+
+    --border: 210 15% 20%;
+    --input: 210 15% 20%;
+    --ring: 190 50% 45%;
+
+    --sidebar-background: 210 15% 10%;
+    --sidebar-foreground: 210 15% 95%;
+    --sidebar-primary: 190 50% 45%;
+    --sidebar-primary-foreground: 210 15% 8%;
+    --sidebar-accent: 210 15% 18%;
+    --sidebar-accent-foreground: 210 15% 95%;
+    --sidebar-border: 210 15% 20%;
+    --sidebar-ring: 190 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Instrument Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer components {
+  /* Apple-style glass morphism */
+  .glass {
+    background: hsl(var(--glass));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  /* Hero section styles */
+  .hero-overlay {
+    background: var(--hero-gradient);
+  }
+
+  /* Apple-style button hover */
+  .btn-apple {
+    @apply transition-all duration-300 ease-out;
+    transform: translateY(0);
+  }
+
+  .btn-apple:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-apple:active {
+    transform: translateY(0);
+  }
+
+  /* Smooth image loading */
+  .img-fade {
+    @apply transition-opacity duration-500;
+  }
+
+  /* Section spacing - Apple style generous whitespace */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  /* Container with Apple-style max-width */
+  .container-apple {
+    @apply mx-auto px-6 md:px-8;
+    max-width: 1120px;
+  }
+
+  /* Text gradient effect */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(190 45% 25%), hsl(190 50% 38%));
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Blog article content blocks - keeps rich post layouts on-brand */
+  .blog-content h2 {
+    @apply font-heading text-headline text-foreground mt-12 mb-4 pb-3 border-b border-border;
+  }
+
+  .blog-content h3 {
+    @apply font-heading text-title text-foreground mt-8 mb-3;
+  }
+
+  .blog-content p {
+    @apply text-body-lg text-muted-foreground leading-relaxed mb-5;
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    @apply mb-5 space-y-3;
+  }
+
+  .blog-content li {
+    @apply text-body text-muted-foreground leading-relaxed pl-7 relative;
+  }
+
+  .blog-content ul li::before {
+    content: '';
+    @apply absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-primary;
+  }
+
+  .blog-content ol {
+    counter-reset: blog-ol;
+  }
+
+  .blog-content ol li {
+    counter-increment: blog-ol;
+  }
+
+  .blog-content ol li::before {
+    content: counter(blog-ol);
+    @apply absolute left-0 top-0 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[11px] font-semibold flex items-center justify-center;
+  }
+
+  .blog-content strong {
+    @apply text-foreground font-semibold;
+  }
+
+  .blog-content .callout {
+    @apply rounded-2xl p-6 my-8 border-l-4 bg-secondary/60 border-primary;
+  }
+
+  .blog-content .callout-title {
+    @apply text-caption font-semibold uppercase tracking-wide text-primary mb-2;
+  }
+
+  .blog-content .callout p {
+    @apply text-body text-muted-foreground mb-0;
+  }
+
+  .blog-content .stat-row {
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-4 my-8;
+  }
+
+  .blog-content .stat-card {
+    @apply bg-secondary/60 border border-border rounded-2xl p-5 text-center;
+  }
+
+  .blog-content .stat-number {
+    @apply font-heading text-display text-primary block leading-none mb-1.5;
+  }
+
+  .blog-content .stat-label {
+    @apply text-caption text-muted-foreground;
+  }
+
+  .blog-content .check-table {
+    @apply w-full my-7 border border-border rounded-2xl overflow-hidden border-collapse;
+  }
+
+  .blog-content .check-table th {
+    @apply bg-foreground text-background text-left text-caption font-semibold px-5 py-3;
+  }
+
+  .blog-content .check-table td {
+    @apply px-5 py-3.5 text-body text-muted-foreground align-top border-t border-border;
+  }
+
+  .blog-content .check-table td:first-child {
+    @apply text-foreground font-medium;
+  }
+
+  .blog-content .tag-good {
+    @apply bg-primary/15 text-primary px-2.5 py-1 rounded-full text-caption font-medium;
+  }
+
+  .blog-content .tag-warn {
+    @apply bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full text-caption font-medium;
+  }
+
+  .blog-content .tag-bad {
+    @apply bg-destructive/10 text-destructive px-2.5 py-1 rounded-full text-caption font-medium;
+  }
+
+  .blog-content .pull-quote {
+    @apply border-l-4 border-primary bg-secondary/40 rounded-r-2xl px-7 py-5 my-9;
+  }
+
+  .blog-content .pull-quote p {
+    @apply font-heading text-title text-foreground italic leading-snug mb-0;
+  }
+
+  .blog-content .pull-quote cite {
+    @apply block mt-3 text-caption text-muted-foreground not-italic font-medium;
+  }
+
+  .blog-content .steps {
+    @apply my-7;
+  }
+
+  .blog-content .step {
+    @apply flex gap-5 pb-7 mb-7 border-b border-border last:border-0 last:mb-0 last:pb-0;
+  }
+
+  .blog-content .step-num {
+    @apply flex-shrink-0 w-10 h-10 rounded-full bg-foreground text-background font-heading text-title flex items-center justify-center;
+  }
+
+  .blog-content .step-body h4 {
+    @apply text-body-lg font-semibold text-foreground mb-1.5;
+  }
+
+  .blog-content .step-body p {
+    @apply text-body text-muted-foreground mb-0;
+  }
+
+  .blog-content .divider {
+    @apply flex items-center gap-4 my-11;
+  }
+
+  .blog-content .divider-line {
+    @apply flex-1 h-px bg-border;
+  }
+}
+
+@layer utilities {
+  /* Animation delays */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+}
