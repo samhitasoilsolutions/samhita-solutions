@@ -97,7 +97,7 @@ interface RawFile {
 
 function parseLangSections(raw: string): Partial<Record<Lang, RawFile>> {
   const sections: Partial<Record<Lang, RawFile>> = {};
-  const parts = raw.split(/<!--\s*lang:(en|te)\s*-->/);
+  const parts = raw.replace(/\r\n/g, "\n").split(/<!--\s*lang:(en|te)\s*-->/);
 
   // parts[0] is anything before the first marker (ignored); then alternating [lang, content, lang, content, ...]
   for (let i = 1; i < parts.length; i += 2) {
