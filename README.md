@@ -2,7 +2,7 @@
 
 Website for Samhita Soil Solutions — Government of India certified manufacturer of organic bio-pesticides, bio-fertilizers, and micronutrients based in Kakinada, Andhra Pradesh.
 
-**Live**: https://samhitasolutions.in
+
 
 ## Tech Stack
 
